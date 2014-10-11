@@ -1,0 +1,36 @@
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+.acarousel .starttransition{
+  margin-bottom:15px;
+}
+.acarousel .stoptransition{
+ margin-left:25px;
+	margin-bottom:15px;
+}
+.acarousel .acarousel-prev{
+	margin-left:25px;
+	margin-bottom:15px;
+}
+.acarousel .acarousel-next{
+	margin-left:25px	;
+	margin-bottom:15px;
+}
+.acarousel .acarousel-el{
+  width :100%;
+}
+.acarousel{
+	width :100%;
+	margin-bottom:15px;
+}
+.rotaion{
+	display:inline;
+	margin-bottom:15px;
+}
+.transitionInterval{
+	margin-left:25%;
+}
+.nav-buttons{
+	margin-bottom:5px;
+}
