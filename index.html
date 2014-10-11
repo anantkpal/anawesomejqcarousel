@@ -43,10 +43,10 @@
       <nav>
         <ul></ul>
       </nav>
-      <section>
+      <section style="min-width:708px" >
          <div class="image_carousel">
 			  
-				<div id="foo1">
+				<div id="foo1" style="height:450px;">
 				<div class="row">
 					<div class="rotaion">
 						<b>Transition Towards:</b>
@@ -94,9 +94,97 @@
 				<div class="clearfix"></div>
 			</div>
 		
-        
-        
-      </section>
+        <h3>Code Which Makes this awesomeness!!!</h3>
+		<h4>HTML:</h4>
+		<pre style="overflow:auto">
+		<code>
+&lt;div class="image_carousel"&gt;
+	&lt;div id="foo1"&gt;
+		&lt;div class="row"&gt;
+			&lt;div class="rotaion"&gt;
+				&lt;b&gt;Transition Towards:&lt;/b&gt;
+				&lt;label class="radio-inline"&gt;
+					&lt;input type="radio" name="transitionTowards"  value="left" checked="checked"&gt;Down
+				&lt;/label&gt;
+				&lt;label class="radio-inline"&gt;
+						  &lt;input type="radio" name="transitionTowards" value="right"&gt;Up
+				&lt;/label&gt;
+		&lt;/div&gt;
+					
+				&lt;div class="col-xs-2 transitionInterval"&gt;
+					&lt;input type="text" class="form-control" name="transitionInterval" placeholder="Transition Interval" value="5000"&gt;
+		 &lt;/div&gt;
+		 &lt;div class="clearfix"&gt;&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;br/&gt;
+		&lt;div class="row"&gt;
+			&lt;center&gt;
+				&lt;div class="col-centered"&gt;
+					&lt;a href="javascript:void(0)" class="starttransition btn btn-primary btn-sm"&gt;Start Transition&lt;/a&gt;
+					&lt;a href="javascript:void(0)" class="stoptransition btn btn-primary btn-sm"&gt;Stop Transition&lt;/a&gt;
+					&lt;a href="javascript:void(0)" class="acarousel-prev btn btn-primary btn-sm"&gt;Previous&lt;/a&gt;
+					&lt;a href="javascript:void(0)" class="acarousel-next btn btn-primary btn-sm"&gt;Next&lt;/a&gt;
+				&lt;/div&gt;
+				&lt;div class="nav-buttons"&gt;
+					&lt;a href="javascript:void(0)" class="btn btn-default btn-xs slidto"&gt;1&lt;/a&gt;
+					&lt;a href="javascript:void(0)" class="btn btn-primary btn-xs slidto"&gt;2&lt;/a&gt;
+					&lt;a href="javascript:void(0)" class="btn btn-primary btn-xs slidto"&gt;3&lt;/a&gt;
+					&lt;a href="javascript:void(0)" class="btn btn-primary btn-xs slidto"&gt;4&lt;/a&gt;
+					&lt;a href="javascript:void(0)" class="btn btn-primary btn-xs slidto"&gt;5&lt;/a&gt;
+					&lt;a href="javascript:void(0)" class="btn btn-primary btn-xs slidto"&gt;6&lt;/a&gt;
+				&lt;/div&gt;
+			&lt;/center&gt;
+		&lt;/div&gt;
+		&lt;div class="clearfix"&gt;&lt;/div&gt;
+		&lt;img src="http://lorempixel.com/320/200/sports/1/" alt="1" width="320" height="320" /&gt;
+		&lt;img src="http://lorempixel.com/320/200/sports/2/" alt="2" width="320" height="320" /&gt;
+		&lt;img src="http://lorempixel.com/320/200/sports/3/" alt="3" width="320" height="320" /&gt;
+		&lt;img src="http://lorempixel.com/320/200/sports/4/" alt="4" width="320" height="320" /&gt;
+		&lt;img src="http://lorempixel.com/320/200/sports/5/" alt="5" width="320" height="320" /&gt;
+		&lt;img src="http://lorempixel.com/320/200/sports/6/" alt="6" width="320" height="320" /&gt;
+	&lt;/div&gt;
+	&lt;div class="clearfix"&gt;&lt;/div&gt;
+&lt;/div&gt;
+		</code>
+        </pre>
+		<h4>JS:</h4>
+		<div class="highlight highlight-javascript">
+		<pre>
+		
+			<code>
+var foo1anAwesomejQCarousel
+$(document).ready(function(){
+	$('input[name="transitionTowards"],input[name="transitionInterval"]').on('focusout change',function(){
+			var transitionInterval= $('input[name="transitionInterval"]').val()
+			if($.trim($('input[name="transitionInterval"]').val())==='')
+				transitionInterval=5000;
+				foo1anAwesomejQCarousel.updatesettings({rotation:$('input[name="transitionTowards"]:checked').val(),interval:transitionInterval});
+	});
+	var transitionInterval= $('input[name="transitionInterval"]').val()
+	if($.trim($('input[name="transitionInterval"]').val())==='')
+		transitionInterval=5000;
+	 foo1anAwesomejQCarousel=$('#foo1').anAwesomejQCarousel({
+																rotation:$('input[name="transitionTowards"]:checked').val(),
+																interval:transitionInterval,
+																callBackAfterEachSlide:function(curel,prevel){
+																	$('.slidto.btn-default').addClass('btn-primary').removeClass('btn-default');
+																	$('.slidto:contains("'+$(curel).attr('alt')+'")').addClass('btn-default').removeClass('btn-primary');
+																}});
+	$('#foo1 .starttransition').on('click',function(){
+		foo1anAwesomejQCarousel.startTransition();
+	});
+	$('#foo1 .stoptransition').on('click',function(){
+		foo1anAwesomejQCarousel.stopTransition();
+	});
+	$('#foo1 .slidto').on('click',function(){
+		var selector = $(this).text();
+		foo1anAwesomejQCarousel.slideTo($('img[alt="'+selector+'"]'));
+	});
+});
+			</code>
+		</pre>
+		</div>
+	 </section>
       <footer>
         <p>Project maintained by <a href="https://github.com/anantkpal">anantkpal</a></p>
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
